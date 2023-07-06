@@ -1,0 +1,185 @@
+html, body {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(315deg, rgba(172,213,196,1) 0%, rgba(225,241,235,1) 35%, rgba(247,247,246,1) 100%);
+    color: #282827;
+    font-family: 'Source Code Pro', monospace;;
+}
+
+
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.mainContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.selectFilesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.beginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.text {
+    margin: 0;
+}
+
+.tempText {
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+/*select Button*/
+.button-62 {
+    background: #282827;
+    border: 0;
+    border-radius: 6px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    padding: 0px 30px;
+    outline: transparent;
+    text-align: center;
+    text-decoration: none;
+    transition: .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    height: 40px;
+}
+
+.button-62:not([disabled]):hover {
+    background: #acd5c4;
+    color: #282827;
+    box-shadow: 0 0 10px #acd5c4;
+}
+
+.button-62.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* .removeButtonStyle {
+    color: blue;
+} */
+
+
+
+
+
+.innerContainer {
+    flex: 1;
+    background-color: #ededeb;
+    border-radius: 10px;
+    max-width: 500px;
+    min-height: 500px;
+    position: relative;
+    box-shadow: 2px 2px 10px #b0b0ae;
+}
+
+.innerContainer:first-child {
+    margin-right: 20px;
+    
+}
+
+
+
+ul {
+    list-style-type: none;
+    padding: 0px 10px;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 10px 10px;
+    position: relative;
+    font-weight: bold;
+}
+
+li:after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+span.file-size {
+    margin-top: 5px;
+    font-size: 15px;
+    color: #999;
+} 
+  
+.removeButtonStyle {
+    background: none;
+    border: none;
+    color: #a84242;
+    cursor: pointer;
+    transition: 0.3 ease-in-out;
+    font-weight: bold;
+}
+
+.removeButtonStyle:not([disabled]):hover {
+    color: #c47a7a;
+}
+
+.fas, .fa-download{
+    background: none;
+    border: none;
+    font-size: 1.30rem;
+    cursor: pointer;
+    transition: 0.3 ease-in-out;
+    font-weight: bold;
+}
+
+.statusContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.statusClass {
+    font-weight: bold;
+    padding: 20px;
+}

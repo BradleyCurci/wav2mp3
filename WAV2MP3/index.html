@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.1/lame.all.min.js" integrity="sha512-KCL9rAMUrMghLmYg3UtS2CHz2AsVk1YMOqESkf8AYr7fS/NrzjIE3mxXiDHAMAkt+2a9Q3KrOg6Wj6f4Z4EykA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/759d023380.js" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+    <script src="script.js" ></script>
+    <script src="GIDSignIn.js"></script>
+    <title>wav2mp3Converter</title>
+</head>
+<body>
+    
+    <h1>WAV to MP3 converter</h1>
+ 
+    <div class = "mainContainer">
+        <div class="innerContainer wav">
+            <div class="selectFilesContainer">
+                <h4 class="text">Select files to convert</h4>
+                <div class="spacer"></div>
+                <button class="button-62" role="button" id="selectButton">Select</button>
+            </div>
+
+            
+
+            <div class="fileListContainer">
+                <div class="tempText">
+                    <h5 class="noFilesText" id="noFilesText">No files added</h5>
+                </div>
+                <ul id="listItems"></ul>
+            </div>
+
+            <div class="beginContainer">
+                <button class="button-62" role="button" id="beginButton">Begin</button>
+                 <button class="button-62" role="button" id="refreshButton">Restart</button>
+            </div>
+            
+        </div>
+
+        <div class="innerContainer mp3">
+            <div class="selectFilesContainer">
+                <h4 class="text">Pick up converted files here</h4>
+                <div class="spacer"></div>
+                <button class="button-62" role="button" id="downloadAllButton">Download all</button>
+            </div>
+
+            <div class="fileListContainer">
+                <div class="tempText">
+                    <h5 class="noCompFilesText" id="noCompFilesText">No files converted</h5>
+                </div>
+                <ul id="completedListItems"></ul>
+            </div>
+            
+        </div>
+    </div>
+    <div class="statusContainer">
+        <p class="statusClass" id="statusId">0% Complete.</p>
+    </div>
+    
+</body>
+</html>
