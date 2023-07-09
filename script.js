@@ -356,6 +356,26 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const signInBtn = document.getElementById("signInButton");
+  const dismiss = document.getElementById("overlay");
+
+  signInBtn.addEventListener('click', () => {
+    showSignIn();
+  })
+
+  dismiss.addEventListener('click', () => {
+    dismissSignIn();
+  })
+
+
+  function showSignIn() {
+    document.getElementById("overlay").style.display = "block"
+  }
+
+  function dismissSignIn() {
+    document.getElementById("overlay").style.display = "none";
+  }
+
 });
 
 

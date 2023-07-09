@@ -1,15 +1,86 @@
-html, body {
+html,
+body {
     min-width: 100%;
     min-height: 100%;
 }
 
 body {
-    background: linear-gradient(315deg, rgba(172,213,196,1) 0%, rgba(225,241,235,1) 35%, rgba(247,247,246,1) 100%);
+    background: linear-gradient(315deg, rgba(172, 213, 196, 1) 0%, rgba(225, 241, 235, 1) 35%, rgba(247, 247, 246, 1) 100%);
     color: #282827;
-    font-family: 'Source Code Pro', monospace;;
+    font-family: 'Source Code Pro', monospace;
+    ;
 }
 
+#overlay {
+    position: fixed;
+    /* Sit on top of the page content */
+    display: none;
+    /* Hidden by default */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
+}
 
+#sign-in-container {
+    background: #ededeb;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #3a3a38;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.sign-in-text {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.g_id_signin {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sign-in-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 13px 29px;
+    border: none;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    transition: 0.4s;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    padding: 0px 30px;
+    color: #282827;
+    margin: 10px;
+}
+
+.sign-in-button:hover {
+    background: #acd5c4;
+}
 
 h1 {
     display: flex;
@@ -90,14 +161,6 @@ h1 {
     pointer-events: none;
 }
 
-/* .removeButtonStyle {
-    color: blue;
-} */
-
-
-
-
-
 .innerContainer {
     flex: 1;
     background-color: #ededeb;
@@ -110,7 +173,7 @@ h1 {
 
 .innerContainer:first-child {
     margin-right: 20px;
-    
+
 }
 
 
@@ -132,13 +195,13 @@ li {
 }
 
 li:after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: #ccc;
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
 }
 
 span {
@@ -150,8 +213,8 @@ span.file-size {
     margin-top: 5px;
     font-size: 15px;
     color: #999;
-} 
-  
+}
+
 .removeButtonStyle {
     background: none;
     border: none;
@@ -165,7 +228,8 @@ span.file-size {
     color: #c47a7a;
 }
 
-.fas, .fa-download{
+.fas,
+.fa-download {
     background: none;
     border: none;
     font-size: 1.30rem;
