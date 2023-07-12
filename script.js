@@ -376,6 +376,19 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("overlay").style.display = "none";
   }
 
+  const signOutButton = document.getElementById("signOutButton");
+  signOutButton.addEventListener('click', () => {
+    signOut();
+  })
+
+  function signOut() {
+    console.log("Signin out")
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
+  }
+
 });
 
 
