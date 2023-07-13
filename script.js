@@ -309,6 +309,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     files.forEach((item) => {
 
+      var mp3Name = "";
+      var url;
+
       const li = document.createElement('li');
 
       const fileText = document.createElement('span');
@@ -334,12 +337,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // download individual
       downloadOne.addEventListener('click', () => {
-        const url = item.downLink;
+        url = item.downLink;
 
         const downloadLink = document.createElement('a');
         downloadLink.href = url;
         var ogName = item.fileName;
-        downloadLink.download = ogName.substring(0, ogName.length - 3) + '.mp3';
+        mp3Name = downloadLink.download = ogName.substring(0, ogName.length - 4) + '.mp3';
   
         console.log(downloadLink)
   
@@ -353,6 +356,8 @@ window.addEventListener('DOMContentLoaded', () => {
         downloadOne.disabled = true;
       }
       completedListItems.appendChild(li);
+
+      li.appendChild(generateSaveToDriveButton(url, mp3Name));
     });
   }
 
@@ -380,6 +385,15 @@ window.addEventListener('DOMContentLoaded', () => {
   signOutButton.addEventListener('click', () => {
     signOut();
   })
+
+  function generateSaveToDriveButton(path, name) {
+    var saveToDriveButton = document.createElement("div");
+    saveToDriveButton.className = "g-savetodrive";
+    saveToDriveButton.setAttribute("data-src", path);
+    saveToDriveButton.setAttribute("data-filename", name);
+    saveToDriveButton.setAttribute("data-sitename", "wav2mp3");
+    return saveToDriveButton;
+  }
 
   function signOut() {
     console.log("Signin out")
