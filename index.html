@@ -6,48 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.1/lame.all.min.js"
         integrity="sha512-KCL9rAMUrMghLmYg3UtS2CHz2AsVk1YMOqESkf8AYr7fS/NrzjIE3mxXiDHAMAkt+2a9Q3KrOg6Wj6f4Z4EykA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://kit.fontawesome.com/759d023380.js" crossorigin="anonymous"></script>
 
-
-    <!-- <meta name="google-signin-client_id" content="274933351996-km67f0vv2mm4q6l2811efm746buoqgsq.apps.googleusercontent.com"> -->
     <script src="script.js"></script>
-    <script src="GIDSignIn.js"></script>
     <title>wav2mp3Converter</title>
 </head>
 
 <body>
 
-    <div id="overlay">
-        <div id="sign-in-container">
-
-            <h3 class="sign-in-text">Sign In</h3>
-
-
-
-            <div id="g_id_onload"
-                data-client_id="274933351996-km67f0vv2mm4q6l2811efm746buoqgsq.apps.googleusercontent.com"
-                data-context="signin" data-ux_mode="popup" data-redirect_uri="https://bradleycurci.github.io/wav2mp3/"
-                data-auto_prompt="false">
-            </div>
-
-
-
-            <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
-                data-size="large" data-logo_alignment="left">
-            </div>
-
-        </div>
-    </div>
-
     <div class="header">
         <h1>WAV to MP3 converter</h1>
-
-        <button class="sign-in-button" role="button" id="signInButton">Sign in</button>
 
     </div>
     <div class="mainContainer">
@@ -64,7 +35,7 @@
                 <div class="tempText">
                     <h5 class="noFilesText" id="noFilesText">No files added</h5>
                 </div>
-                <ul id="listItems"></ul>
+                <ul class="listItems" id="listItems"></ul>
             </div>
 
             <div class="beginContainer">
@@ -85,7 +56,13 @@
                 <div class="tempText">
                     <h5 class="noCompFilesText" id="noCompFilesText">No files converted</h5>
                 </div>
-                <ul id="completedListItems"></ul>
+                <ul class="listItems" id="completedListItems"></ul>
+
+                <div class="open-google-drive-container">
+                    <a href="https://drive.google.com/drive/my-drive" target="_blank" id="googleDriveLink">Open Google
+                        Drive</a>
+                </div>
+
             </div>
 
         </div>
@@ -94,11 +71,14 @@
         <p class="statusClass" id="statusId">0% Complete.</p>
     </div>
 
-
-
-
-    <button class="sign-out-button" role="button" id="signOutButton">Sign out</button>
-
+    <div class="menu-container">
+        <ul class="ul-menu">
+            <li class="menu"><a href="./index.html">Home</a></li>
+            <li class="menu"><a href="./help.html">Help</a></li>
+            <li class="menu"><a href="./about.html">About</a></li>
+            <li class="menu"><a href="./contact.html">Contact</a></li>
+        </ul>
+    </div>
 
 
 </body>

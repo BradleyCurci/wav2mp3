@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const itemList = document.getElementById('listItems');
   const completedListItems = document.getElementById('completedListItems');
   var disable = false;
+  var complete = false;
 
   const items = [];
   const completeItems = [];
@@ -96,7 +97,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const beginButton = document.getElementById('beginButton');
   const theText = document.getElementById('noFilesText');
 
-  
+
 
   function checkArrayEmpty() {
     if (items.length === 0) {
@@ -118,6 +119,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   refreshButton.addEventListener('click', () => {
     location.reload();
+    complete = false;
   })
 
 
@@ -156,9 +158,9 @@ window.addEventListener('DOMContentLoaded', () => {
           downloadLink.href = url;
           ogName = files[i].name;
           downloadLink.download = ogName.substring(0, ogName.length - 3) + '.mp3';
-  
+
           console.log(downloadLink)
-  
+
           document.body.appendChild(downloadLink);
           downloadLink.click();
           document.body.removeChild(downloadLink);
@@ -176,7 +178,8 @@ window.addEventListener('DOMContentLoaded', () => {
     beginButton.style.display = "none";
     selectButton.classList.remove('disabled');
 
-  
+    complete = true;
+    updateGDView();
 
     updateMp3Side(completeItems)
 
@@ -248,9 +251,9 @@ window.addEventListener('DOMContentLoaded', () => {
         var url = URL.createObjectURL(blob);
 
         const completeFileObject = new obj(compFile.name, size.toFixed() + "KB", url)
-        addToComplete(completeFileObject); 
+        addToComplete(completeFileObject);
 
-        
+
         resolve(url);
         console.log(blob)
         updateProgress();
@@ -343,9 +346,9 @@ window.addEventListener('DOMContentLoaded', () => {
         downloadLink.href = url;
         var ogName = item.fileName;
         mp3Name = downloadLink.download = ogName.substring(0, ogName.length - 4) + '.mp3';
-  
+
         console.log(downloadLink)
-  
+
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
@@ -356,53 +359,17 @@ window.addEventListener('DOMContentLoaded', () => {
         downloadOne.disabled = true;
       }
       completedListItems.appendChild(li);
-
-      li.appendChild(generateSaveToDriveButton(url, mp3Name));
     });
   }
 
-  const signInBtn = document.getElementById("signInButton");
-  const dismiss = document.getElementById("overlay");
-
-  signInBtn.addEventListener('click', () => {
-    showSignIn();
-  })
-
-  dismiss.addEventListener('click', () => {
-    dismissSignIn();
-  })
-
-
-  function showSignIn() {
-    document.getElementById("overlay").style.display = "block"
+  function updateGDView() {
+    const openGoogleDrive = document.getElementById("googleDriveLink");
+    if (complete === false) {
+      openGoogleDrive.style.display = "none";
+    } else {
+      openGoogleDrive.style.display = "block";
+    }
   }
-
-  function dismissSignIn() {
-    document.getElementById("overlay").style.display = "none";
-  }
-
-  const signOutButton = document.getElementById("signOutButton");
-  signOutButton.addEventListener('click', () => {
-    signOut();
-  })
-
-  function generateSaveToDriveButton(path, name) {
-    var saveToDriveButton = document.createElement("div");
-    saveToDriveButton.className = "g-savetodrive";
-    saveToDriveButton.setAttribute("data-src", path);
-    saveToDriveButton.setAttribute("data-filename", name);
-    saveToDriveButton.setAttribute("data-sitename", "wav2mp3");
-    return saveToDriveButton;
-  }
-
-  function signOut() {
-    console.log("Signin out")
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('User signed out.');
-    });
-  }
-
 });
 
 
