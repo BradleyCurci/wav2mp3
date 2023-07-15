@@ -7,8 +7,7 @@ body {
 body {
     background: linear-gradient(315deg, rgba(172, 213, 196, 1) 0%, rgba(225, 241, 235, 1) 35%, rgba(247, 247, 246, 1) 100%);
     color: #282827;
-    font-family: 'Source Code Pro', monospace;
-    ;
+    font-family: 'open-sans', sans-serif;
 }
 
 h1 {
