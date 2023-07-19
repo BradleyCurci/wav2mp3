@@ -81,10 +81,10 @@ window.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < selectedFiles.length; i++) {
         const file = selectedFiles[i];
         const size = file.size;
-        const newSize = size / 1000;
+        const newSize = formatBytes(size);
 
         // add object to add item
-        let thing = new obj(file.name, newSize.toFixed() + 'KB');
+        let thing = new obj(file.name, newSize);
         addItem(thing);
 
         // add file to the files to convert
@@ -93,6 +93,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     });
   });
+
+  function formatBytes(bytes, decimals = 2) {
+    if (!+bytes) return '0 Bytes'
+
+    const k = 1024
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+}
 
   const beginButton = document.getElementById('beginButton');
   const theText = document.getElementById('noFilesText');
@@ -157,7 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
           const downloadLink = document.createElement('a');
           downloadLink.href = url;
           ogName = files[i].name;
-          downloadLink.download = ogName.substring(0, ogName.length - 3) + '.mp3';
+          downloadLink.download = ogName.substring(0, ogName.length - 4) + '.mp3';
 
           console.log(downloadLink)
 
@@ -202,7 +214,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const samples = new Int16Array(arrayBuffer, wav.dataOffset, wav.dataLen / 2);
         const buffer = [];
-        const mp3enc = new lamejs.Mp3Encoder(wav.channels, wav.sampleRate, 128);
+        const mp3enc = new lamejs.Mp3Encoder(wav.channels, wav.sampleRate, 256);
         var remaining = samples.length;
         var maxSamples = 1152;
         var left = new Int16Array(arrayBuffer, wav.dataOffset, wav.dataLen / 2);
@@ -248,9 +260,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const size = compFile.size / 3;
 
+        const newSize = formatBytes(size);
+
         var url = URL.createObjectURL(blob);
 
-        const completeFileObject = new obj(compFile.name, size.toFixed() + "KB", url)
+        const completeFileObject = new obj(compFile.name, newSize, url)
         addToComplete(completeFileObject);
 
 
